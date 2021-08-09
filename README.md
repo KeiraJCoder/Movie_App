@@ -1,1 +1,1 @@
-A simple programme created in Node.js, designed to create, remove, update, delete (CRUD) movies from a favourite movie list.
+A simple programme created in Node.js, designed to create, read, update, delete (CRUD) movies from a favourite movie list.
