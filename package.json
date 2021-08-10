@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "Start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeiraJCoder/CRUD_cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeiraJCoder/CRUD_cli/issues"
+  },
+  "homepage": "https://github.com/KeiraJCoder/CRUD_cli#readme",
+  "dependencies": {
+    "yargs": "^17.1.0"
+  }
+}

@@ -1,29 +1,26 @@
-  
-const fs = require('fs')
-const command = process.argv[2];
-const input = process.argv[3];
-const updateInput = process.argv[4];
-const { add, deleteMovie, updateMovie } = require('./utils');
+  const yargs = require ("yargs/yargs");
+  const {hideBin} = require("yargs/helpers");
+  const argv = yargs(hideBin(process.argv)).argv;
+  const fs =  require ("fs");
+    const { add, updateMovie, deleteMovie } = require('./utils');
 
-const app = () => {
-    let movieListArr
-    try {
-        movieListArr = JSON.parse(fs.readFileSync('./movies.json'));
-    } catch (error) {
-        movieListArr = [];
+  const app = () => {
+      let movieListArr 
+        try {
+            movieListArr = JSON.parse(fs.readFileSync('./movies.json'));
+        } catch (error) {
+            movieListArr = [];
+        }
+      if (argv.add) {
+          add(movieListArr, argv.add)
+      } else if (argv.delete) {
+          deleteMovie(movieListArr, argv.delete)
+      } else if (argv.update) {
+          updateMovie(movieListArr,  argv.update, argv.new)
+      } else if (argv.list) {
+          console.log(movieListArr)
+      }
     }
-    if (command === 'add') {
-        add(movieListArr, input);
+console.log(argv);
 
-    } else if(command === 'list') {
-        console.log(movieListArr)
-    
-    } else if(command === 'delete') {
-        deleteMovie(movieListArr, input);
-
-    } else if (command === "update"){
-        updateMovie(movieListArr, input, updateInput)
-
-    }
-}
 app();
