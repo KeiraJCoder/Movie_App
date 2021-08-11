@@ -3,6 +3,7 @@
   const argv = yargs(hideBin(process.argv)).argv;
   const fs =  require ("fs");
     const { add, updateMovie, deleteMovie } = require('./utils');
+const { ADDRCONFIG } = require("dns");
 
   const app = () => {
       let movieListArr 
@@ -15,12 +16,11 @@
           add(movieListArr, argv.add)
       } else if (argv.delete) {
           deleteMovie(movieListArr, argv.delete)
-      } else if (argv.update) {
+      } else if (argv.update && argv.new) {
           updateMovie(movieListArr,  argv.update, argv.new)
       } else if (argv.list) {
           console.log(movieListArr)
       }
     }
-console.log(argv);
 
 app();

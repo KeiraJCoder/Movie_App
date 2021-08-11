@@ -27,17 +27,17 @@ if (spliceIndex >= 0) {
         console.log('Movie not found');
     }
 }
-    
 
-    exports.updateMovie = (movieListArr, input, updateInput) => {
+    exports.updateMovie = (movieListArr, updateInput, newInput) => {
         let spliceIndex;
         movieListArr.map((movie, index) => {
-            if (movie.movie === input) {
+            if (movie.movie === updateInput) {
                 spliceIndex = index;
+              
             }
         })
         try {
-            movieListArr[spliceIndex].movie = updateInput;
+            movieListArr[spliceIndex].movie = newInput
             save(movieListArr);
         } catch (error) {
             console.log("Movie doesn't exist");
